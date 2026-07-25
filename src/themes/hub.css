@@ -1,0 +1,5 @@
+/* CommunityRankings (hub) — accent primitives. Import AFTER tokens.css. */
+:root {
+  --hue: 262;            /* indigo-violet, distinct from the three platforms */
+  --chroma-accent: 0.15;
+}

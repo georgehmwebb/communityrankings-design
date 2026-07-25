@@ -1,0 +1,5 @@
+/* RumbleRankings — accent primitives. Import AFTER tokens.css. */
+:root {
+  --hue: 150;            /* green */
+  --chroma-accent: 0.17;
+}

@@ -1,0 +1,64 @@
+/* =============================================================================
+   CommunityRankings — semantic design tokens
+   -----------------------------------------------------------------------------
+   TWO LAYERS.
+
+   Layer 1 (primitives) is set PER SITE in one of the theme files
+   (themes/rumble.css, themes/telegram.css, …). A site only ever sets:
+       --hue            the site's accent hue (oklch hue angle, 0–360)
+       --chroma-accent  how saturated the accent is
+
+   Layer 2 (semantic) lives HERE and is identical on every site. Every surface,
+   border, text and accent colour is DERIVED from --hue, so a single hue change
+   re-themes the whole site while the relationships between colours stay locked.
+
+   Consume in a site's globals.css:
+       @import '@communityrankings/design/tokens.css';
+       @import '@communityrankings/design/themes/rumble.css';   (or telegram / discord / hub)
+
+   Colours are oklch() so lightness/chroma stay perceptually consistent as the
+   hue rotates between sites. All three sites are dark-themed.
+   ========================================================================== */
+
+:root {
+  /* --- Layer 1 defaults (a neutral slate). A theme file overrides these. --- */
+  --hue: 250;
+  --chroma-accent: 0.15;
+
+  /* --- Layer 2: surfaces --- */
+  --surface-base: oklch(0.15 0.02 var(--hue));
+  --surface-raised: oklch(0.19 0.025 var(--hue));
+  --surface-overlay: oklch(0.235 0.03 var(--hue));
+
+  /* --- Layer 2: lines / borders --- */
+  --line-subtle: oklch(0.28 0.02 var(--hue));
+  --line-strong: oklch(0.4 0.03 var(--hue));
+
+  /* --- Layer 2: text --- */
+  --text-primary: oklch(0.97 0.01 var(--hue));
+  --text-muted: oklch(0.68 0.02 var(--hue));
+  --text-faint: oklch(0.52 0.02 var(--hue));
+
+  /* --- Layer 2: accent (the one themed colour) --- */
+  --accent: oklch(0.8 var(--chroma-accent) var(--hue));
+  --accent-hover: oklch(0.86 var(--chroma-accent) var(--hue));
+  --accent-fg: oklch(0.2 0.03 var(--hue)); /* text/icon sitting on an accent fill */
+
+  /* --- Layer 2: status (FIXED hues — up is green, down is red on every site,
+         regardless of the site's accent. Do not tie these to --hue.) --- */
+  --positive: oklch(0.78 0.17 150);
+  --negative: oklch(0.66 0.2 25);
+
+  /* --- Radii & elevation (shared so cards/buttons match across sites) --- */
+  --radius-card: 14px;
+  --radius-control: 10px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.03) inset,
+    0 8px 30px -12px oklch(0 0 0 / 0.5);
+}
+
+/* Base page colours so a site gets sane defaults the moment it imports tokens. */
+body {
+  background-color: var(--surface-base);
+  color: var(--text-primary);
+}

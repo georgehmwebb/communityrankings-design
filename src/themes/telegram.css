@@ -1,0 +1,5 @@
+/* TelegramRankings — accent primitives. Import AFTER tokens.css. */
+:root {
+  --hue: 232;            /* Telegram blue */
+  --chroma-accent: 0.15;
+}

@@ -1,0 +1,5 @@
+/* DiscordRankings — accent primitives. Import AFTER tokens.css. */
+:root {
+  --hue: 276;            /* Discord blurple */
+  --chroma-accent: 0.16;
+}
