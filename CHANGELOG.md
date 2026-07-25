@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+- Added `StatBar`: shared stat strip, number-first everywhere (standardises
+  Telegram, which put the label above the number). Values stay per-site.
+- Added `SiteFooter`: shared footer shell (brand block + columns + two-part
+  bottom bar) using `cr-container`. Column link lists stay per-site (categories,
+  methodology sub-pages, network column) — only layout/typography are unified.
+
 ## 0.3.0
 - Added shared page container: `.cr-container` class + `--container-max`
   (72rem / 1152px) and `--container-pad` (1rem) tokens in tokens.css, plus a
