@@ -1,6 +1,6 @@
 {
   "name": "@communityrankings/design",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Shared design tokens, per-site themes, and components for the CommunityRankings network (Discord / Telegram / Rumble + hub).",
   "license": "UNLICENSED",
   "private": true,

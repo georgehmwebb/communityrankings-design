@@ -151,6 +151,22 @@ const others = siblingsOf(process.env.NEXT_PUBLIC_SITE_ID as any);
 // render <a href={HUB_URL}>CommunityRankings</a> + others in the "The Network" column
 ```
 
+### Page width (`.cr-container`)
+
+One content width for the whole network. Put `cr-container` on every top-level
+width wrapper — the page `<main>`, nav/header, footer, status bar — replacing any
+hand-picked `max-w-*` / `mx-auto` / `px-*` on those elements. Keep vertical
+padding (`py-*`) and other classes alongside it.
+
+```tsx
+// before: <main className="mx-auto w-full max-w-6xl px-4 py-10">
+<main className="cr-container py-10">…</main>
+```
+
+The width lives in `--container-max` (1152px) in tokens.css — change it once to
+re-flow every site. A `max-w-page` utility is also available if you prefer a
+Tailwind class on an existing wrapper.
+
 ---
 
 ## Releasing an update

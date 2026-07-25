@@ -55,10 +55,25 @@
   --radius-pill: 999px;
   --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.03) inset,
     0 8px 30px -12px oklch(0 0 0 / 0.5);
+
+  /* --- Page container: ONE content width for the whole network --- */
+  --container-max: 72rem; /* 1152px — the network-standard width (matches Rumble) */
+  --container-pad: 1rem; /* 16px horizontal gutter */
 }
 
 /* Base page colours so a site gets sane defaults the moment it imports tokens. */
 body {
   background-color: var(--surface-base);
   color: var(--text-primary);
+}
+
+/* Shared page container. Put this on every top-level width wrapper — page
+   <main>, nav, footer, status bar — so all sites (and pages) share one width,
+   centred, with a consistent gutter. Change --container-max once here to
+   re-flow the entire network. Keep vertical padding (py-*) etc. alongside it. */
+.cr-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
 }

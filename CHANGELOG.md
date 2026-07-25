@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+- Added shared page container: `.cr-container` class + `--container-max`
+  (72rem / 1152px) and `--container-pad` (1rem) tokens in tokens.css, plus a
+  `max-w-page` utility in the preset. One content width for the whole network,
+  defined once. Replaces each site's hand-picked wrapper width.
+
 ## 0.2.0
 - Added `Score` component: mono + tabular-nums score in the site accent colour,
   with green-up / red-down / muted-zero delta. `size` (sm/lg) and `layout`
