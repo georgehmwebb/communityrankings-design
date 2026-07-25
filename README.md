@@ -193,11 +193,14 @@ components — it makes drift obvious at a glance next time you compare tabs.
 The token layer + `NetworkStrip` prove the mechanism. Bring the rest in once
 this is validated on one site, in the order the visible drift lives:
 
-1. `NetworkStrip` ✅ (this release)
-2. `SiteFooter` — the four-column footer incl. the "The Network" column
-3. `StatBar` — the indexed / categories / snapshots / tracking-since row
-4. `LeaderboardRow` — score in **mono** everywhere (Discord currently renders
-   scores in serif italic — the biggest single inconsistency)
+1. `NetworkStrip` ✅ (0.1.0)
+2. `Score` ✅ (0.2.0) — score in **mono** everywhere (Discord was serif italic),
+   green-up / red-down delta. Note: a full shared `LeaderboardRow` was
+   deliberately NOT built — the three sites lead with genuinely different metrics
+   (followers / subscribers / members) and different metadata, so only the score
+   itself is shared; each site keeps its own row layout.
+3. `SiteFooter` — the four-column footer incl. the "The Network" column
+4. `StatBar` — the indexed / categories / snapshots / tracking-since row
 5. `CategoryCard` — shared shell with a data slot
 6. `MethodologyBlock` — port Discord's inline weighted-component version to all
 
